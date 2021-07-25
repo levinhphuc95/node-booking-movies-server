@@ -20,9 +20,9 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-// db.users = require("./user.model.js")(sequelize, Sequelize);
-// db.movies = require("./movie.model.js")(sequelize, Sequelize);
-// db.cineplex = require("./cineplex.model.js")(sequelize, Sequelize);
-// db.cinemas = require("./cinema.model.js")(sequelize, Sequelize);
+db.users = require("./user.model.js")(sequelize, Sequelize);
+db.movies = require("./movie.model.js")(sequelize, Sequelize);
+db.cineplexes = require("./cineplex.model.js")(sequelize, Sequelize);
+db.cinemas = require("./cinema.model.js")(sequelize, Sequelize);
 
 module.exports = db;
