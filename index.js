@@ -2,12 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./models");
 const { rootRouter } = require("./routers/root.router");
-
 const app = express();
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   // console.log("Drop and re-sync db.");
+// });
+
 
 app.use(cors());
 
@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port} !`);
 });
