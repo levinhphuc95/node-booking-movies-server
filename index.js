@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./models");
 const { rootRouter } = require("./routers/root.router");
-const { sequelize, users } = require("./models");
 const app = express();
 
 // db.sequelize.sync({ force: true }).then(() => {
