@@ -1,18 +1,37 @@
-module.exports = (sequelize, Sequelize) => {
-  const Cineplex = sequelize.define("Cineplex", {
-    maHeThongRap: {
-      type: Sequelize.STRING,
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class Cineplex extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate({ Cinema }) {
+      // define association here
+      this.hasMany(Cinema);
+    }
+  }
+  Cineplex.init(
+    {
+      maHeThongRap: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+      },
+      tenHeThongRap: {
+        type: DataTypes.STRING,
+      },
+      biDanh: {
+        type: DataTypes.STRING,
+      },
+      logo: {
+        type: DataTypes.STRING,
+      },
     },
-    tenHeThongRap: {
-      type: Sequelize.STRING,
-    },
-    biDanh: {
-      type: Sequelize.STRING,
-    },
-    logo: {
-      type: Sequelize.STRING,
-    },
-  });
-
+    {
+      sequelize,
+      modelName: "Cineplex",
+    }
+  );
   return Cineplex;
 };

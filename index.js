@@ -5,9 +5,8 @@ const { rootRouter } = require("./routers/root.router");
 const app = express();
 
 // db.sequelize.sync({ force: true }).then(() => {
-//   // console.log("Drop and re-sync db.");
+//   console.log("Drop and re-sync db.");
 // });
-
 
 app.use(cors());
 
