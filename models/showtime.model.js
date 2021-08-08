@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       maLichChieu: {
         type: DataTypes.STRING,
-        primaryKey: true,
       },
       ngayGioChieu: {
         type: DataTypes.DATE,

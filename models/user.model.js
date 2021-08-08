@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       taiKhoan: {
         type: DataTypes.STRING,
-        primaryKey: true,
       },
       hoTen: {
         type: DataTypes.STRING,

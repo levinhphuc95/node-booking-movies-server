@@ -49,7 +49,6 @@ const getListUserPagination = async (req, res) => {
       totalPages: Math.ceil(userListPagination.count / soPhanTuTrenTrang),
       totalCounts: userListPagination.count,
       items: userListPagination.rows,
-      
     });
   } catch (error) {
     res.status(500).send(error);
@@ -111,7 +110,7 @@ const signIn = async (req, res) => {
         const token = jwt.sign(payload, process.env.secretKey, {
           expiresIn: 12 * 30 * 24 * 60 * 60,
         });
-        res.status(200).send({ massage: "Đăng Nhập Thành Công", token });
+        res.status(200).send({ message: "Đăng Nhập Thành Công", token });
       } else {
         res.status(400).send("Tài khoản hoặc mật khẩu không đúng");
       }
@@ -157,6 +156,7 @@ const getDetailUser = async (req, res) => {
 // Xóa người dùng:
 const removeUser = async (req, res) => {
   const { id } = req.params;
+  // console.log(req.parmas)
   try {
     await users.destroy({
       where: {

@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       maRap: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
       },
       tenRap: {
         type: DataTypes.STRING,

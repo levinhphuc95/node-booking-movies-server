@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       maPhim: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
       },
       tenPhim: {
         type: DataTypes.STRING,

@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       maHeThongRap: {
         type: DataTypes.STRING,
-        primaryKey: true,
       },
       tenHeThongRap: {
         type: DataTypes.STRING,
