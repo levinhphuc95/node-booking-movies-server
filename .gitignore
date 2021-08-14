@@ -1,1 +1,4 @@
 node_modules
+# picture files
+*.jpg
+*.png
