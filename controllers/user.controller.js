@@ -82,6 +82,7 @@ const createUser = async (req, res) => {
       soDt,
       maLoaiNguoiDung,
     });
+    newUser.save()
     res.status(201).send("Tạo tài khoản thành công");
   } catch (error) {
     res.status(500).send(error);

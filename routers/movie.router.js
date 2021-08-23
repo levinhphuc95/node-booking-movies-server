@@ -8,6 +8,7 @@ const {
   updateMovies,
   getDetailMovie,
   uploadImgMovie,
+  getListMoviePagination,
 } = require("../controllers/movie.controller");
 const { logFeature } = require("../middlewares/log/log-feature.middlewares");
 const {
@@ -36,9 +37,17 @@ movieRouter.get(
   getDetailMovie
 );
 
+movieRouter.get(
+  "/LayDanhSachPhimPhanTrang",
+  logFeature("lấy danh sách người dùng phân trang"),
+  authenticate,
+  authorize(["ADMIN"]),
+  getListMoviePagination
+);
+
 movieRouter.post("/ThemPhim", authenticate, authorize(["ADMIN"]), createMovie);
 
-// movieRouter.post("/UpLoadHinhAnhPhim", uploadImageSingle(), uploadImgMovie);
+movieRouter.post("/UpLoadHinhAnhPhim", uploadImageSingle(), uploadImgMovie);
 
 movieRouter.delete(
   "/XoaPhim/:maPhim",

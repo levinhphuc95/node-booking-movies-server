@@ -1,5 +1,4 @@
 require("dotenv").config();
-const { removeAccents } = require("../middlewares/utils/removeAccent");
 const { movies } = require("../models");
 
 // Lấy danh sách phim
@@ -23,9 +22,40 @@ const getDetailMovie = async (req, res) => {
   }
 };
 
+// Lấy danh sách người dùng phân trang:
+const getListMoviePagination = async (req, res) => {
+  const pageAsNumber = Number.parseInt(req.query.soTrang);
+  const sizeAsNumber = Number.parseInt(req.query.soPhanTuTrenTrang);
+
+  let soTrang = pageAsNumber;
+  if (!Number.isNaN(pageAsNumber) && pageAsNumber > 0) {
+    soTrang = pageAsNumber;
+  }
+
+  let soPhanTuTrenTrang = sizeAsNumber;
+  if (!Number.isNaN(sizeAsNumber) && sizeAsNumber > 0 && sizeAsNumber < 10) {
+    soPhanTuTrenTrang = sizeAsNumber;
+  }
+  try {
+    const movieListPagination = await movies.findAndCountAll({
+      limit: soPhanTuTrenTrang,
+      offset: soTrang * soPhanTuTrenTrang,
+    });
+    res.status(200).send({
+      currentPages: soTrang,
+      count: soPhanTuTrenTrang,
+      totalPages: Math.ceil(movieListPagination.count / soPhanTuTrenTrang),
+      totalCounts: movieListPagination.count,
+      items: movieListPagination.rows,
+    });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 // Thêm phim
 const createMovie = async (req, res) => {
-  const { tenPhim, trailer, moTa, ngayKhoiChieu, danhGia } = req.body;
+  const { tenPhim, trailer, biDanh, moTa, ngayKhoiChieu, danhGia } = req.body;
   // Không được bỏ trống tên phim
   if (!tenPhim) {
     return res.status(400).send("Tên phim không được bỏ trống");
@@ -33,8 +63,6 @@ const createMovie = async (req, res) => {
   try {
     // tạo mã phim:
     const maPhim = Math.floor(Math.random() * 10000);
-    // tạo bí danh mới:
-    const biDanh = removeAccents(tenPhim);
     // định dạng ngày:
     const newMovie = await movies.create({
       maPhim,
@@ -74,7 +102,6 @@ const updateMovies = async (req, res) => {
 // Xóa phim:
 const removeMovies = async (req, res) => {
   const { maPhim } = req.params;
-  console.log(req.parmas);
   try {
     await movies.destroy({
       where: {
@@ -88,21 +115,21 @@ const removeMovies = async (req, res) => {
 };
 
 // Upload Hình ảnh phim
-// const uploadImgMovie = async (req, res) => {
-//   const { file } = req;
-//   const { maPhim } = req.body;
-//   console.log(maPhim);
-//   const urlImage = "http://localhost:5000/" + file.path;
-//   // lưu link hinh xuống db
-//   try {
-//     const movieDetail = await movies.findAll({ where: { maPhim } });
-//     // console.log(movieDetail)
-//     movieDetail.hinhAnh = urlImage;
-//     res.send(movieDetail);
-//   } catch (error) {
-//     res.status(500).send(error);
-//   }
-// };
+const uploadImgMovie = async (req, res) => {
+  const { file } = req;
+  const { maPhim } = req.body;
+  const urlImage = "http://localhost:5000/" + file.path;
+  // lưu link hinh xuống db
+  try {
+    const movieDetailId = await movies.findOne({ where: { maPhim } });
+    const movieDetail = await movies.findByPk(movieDetailId.dataValues.id);
+    movieDetail.hinhAnh = urlImage;
+    await movieDetail.save();
+    res.send(movieDetail);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 
 module.exports = {
   createMovie,
@@ -111,4 +138,5 @@ module.exports = {
   updateMovies,
   getDetailMovie,
   uploadImgMovie,
+  getListMoviePagination,
 };
