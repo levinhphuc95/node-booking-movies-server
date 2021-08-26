@@ -16,7 +16,7 @@ const { users } = require("../models");
 
 const userRouter = express.Router();
 
-userRouter.get("/LayDanhSachNguoiDung",logFeature('lấy danh sách người dùng') ,getListUser);
+userRouter.get("/LayDanhSachNguoiDung",logFeature('lấy danh sách người dùng'),authenticate, authorize(["ADMIN"]) ,getListUser);
 
 userRouter.get("/LayDanhSachNguoiDungPhanTrang",logFeature('lấy danh sách người dùng phân trang'),authenticate, authorize(["ADMIN"]) ,getListUserPagination);
 

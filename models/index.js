@@ -6,13 +6,16 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
-
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
     acquire: dbConfig.pool.acquire,
     idle: dbConfig.pool.idle,
   },
+  dialectOptions: {
+    useUTC: false
+  },
+  timezone: "+07:00",
 });
 
 const db = {};
@@ -26,5 +29,11 @@ db.cineplexes = require("./cineplex.model.js")(sequelize, Sequelize);
 db.cinemas = require("./cinema.model.js")(sequelize, Sequelize);
 db.showtimes = require("./showtime.model.js")(sequelize, Sequelize);
 db.seats = require("./seat.model.js")(sequelize, Sequelize);
+
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
 module.exports = db;
