@@ -9,6 +9,7 @@ const {
   getDetailMovie,
   uploadImgMovie,
   getListMoviePagination,
+  getListMoiveByDay,
 } = require("../controllers/movie.controller");
 const { logFeature } = require("../middlewares/log/log-feature.middlewares");
 const {
@@ -26,6 +27,11 @@ movieRouter.get(
   authenticate,
   authorize(["ADMIN"]),
   getListMoive
+);
+
+movieRouter.get(
+  "/LayDanhSachPhimTheoNgay",
+  getListMoiveByDay
 );
 
 movieRouter.get(

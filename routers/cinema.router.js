@@ -1,21 +1,49 @@
 const express = require("express");
 const cinemaRouter = express.Router();
-const { createCineplex, getListCineplex, getListCinemaWithCineplex, createCinena } = require("../controllers/cinema.controller");
-const { logFeature } = require("../middlewares/log/log-feature.middlewares");
+const {
+  createCineplex,
+  getListCineplex,
+  getListCinemaWithCineplex,
+  createCinena,
+  layThongTinLichChieuHeThongRap,
+  layThongTinLichChieuPhim,
+} = require("../controllers/cinema.controller");
+const {
+  authenticate,
+  authorize,
+} = require("../middlewares/auth/verify-token.middleware");
+
 
 cinemaRouter.get(
   "/LayThongTinHeThongRap",
-  logFeature("lấy danh sách hệ thống rạp"),
+  authenticate,
+  authorize(["ADMIN"]),
   getListCineplex
 );
 
 cinemaRouter.get(
   "/LayThongTinCumRapTheoHeThong",
+  authenticate,
+  authorize(["ADMIN"]),
   getListCinemaWithCineplex
+);
+
+cinemaRouter.get(
+  "/LayThongTinLichChieuHeThongRap",
+  authenticate,
+  authorize(["ADMIN"]),
+  layThongTinLichChieuHeThongRap
+);
+cinemaRouter.get(
+  "/LayThongTinLichChieuPhim",
+  authenticate,
+  authorize(["ADMIN"]),
+  layThongTinLichChieuPhim
 );
 
 cinemaRouter.post("/ThemHeThongRap", createCineplex);
 cinemaRouter.post("/ThemRap", createCinena);
+
 module.exports = {
   cinemaRouter,
 };
