@@ -32,6 +32,9 @@ module.exports = (sequelize, DataTypes) => {
       daDat: {
         type: DataTypes.BOOLEAN,
       },
+      taiKhoanNguoiDat: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,

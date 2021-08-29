@@ -10,6 +10,27 @@ const getListMoive = async (req, res) => {
     res.status(500).send(error);
   }
 };
+// Lấy danh sách phim theo ngày
+const getListMoiveByDay = async (req, res) => {
+  const { tenPhim } = req.query;
+  const tuNgayNumber = new Date(req.query.tuNgay);
+  const denNgayNumber = new Date(req.query.denNgay);
+  try {
+    const movieList = await movies.findAll({
+      where: { tenPhim },
+    });
+    const ngayKhoiChieuSS = movieList.map((item) => item.ngayKhoiChieu);
+    let movieListByDay = [];
+    if (tuNgayNumber <= new Date(ngayKhoiChieuSS) && new Date(ngayKhoiChieuSS) <= denNgayNumber) {
+      movieListByDay = movieList;
+    } else {
+      movieListByDay = [];
+    }
+    res.status(200).send(movieListByDay);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 
 // Lấy thông tin phim
 const getDetailMovie = async (req, res) => {
@@ -139,4 +160,5 @@ module.exports = {
   getDetailMovie,
   uploadImgMovie,
   getListMoviePagination,
+  getListMoiveByDay,
 };

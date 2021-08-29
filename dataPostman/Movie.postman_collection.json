@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "25a6545e-e188-4be7-b739-283df2d45de6",
+		"name": "Movie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Them Phim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg5MzAyMjIsImV4cCI6MTY2MDAzNDIyMn0.hpyfn35NZOcQmHTST9Y3LQAnw7yM-VKw229Gc9iLmYY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenPhim\": \"sieu nhan\",\r\n  \"moTa\": \"Bộ phim xúc động nhất quả đất\",\r\n  \"ngayKhoiChieu\": \"10-12-2020\",\r\n  \"danhGia\": \"5\",\r\n  \"trailer\": \"https://www.youtube.com/watch?v=F_wnnbInzSE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/ThemPhim",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"ThemPhim"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Hinh Anh Phim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg5MzMzNjksImV4cCI6MTY2MDAzNzM2OX0.49XAku0TiMiKWRMKjkim78euaJyPozYsWG4sKOTv9TM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imgMovies",
+							"type": "file",
+							"src": "/C:/Users/asus/OneDrive/Hình ảnh/Saved Pictures/Me/20191003_100958.jpg"
+						},
+						{
+							"key": "maPhim",
+							"value": "1088",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/UploadHinhAnhPhim",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"UploadHinhAnhPhim"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Phim",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg0MjE1MDgsImV4cCI6MTY1OTUyNTUwOH0.w2zz2gFe-cNYh9qaxTvsvViuic9DrmiiioSBYyVljIE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/LayDanhSachPhim",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"LayDanhSachPhim"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Thong Tin Phim",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg0MzE0MjksImV4cCI6MTY1OTUzNTQyOX0.X11vpEVcahI9ZyM-_j_LWTKCkkiOu8hFP_5i678MnIE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/LayThongTinPhim/5034",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"LayThongTinPhim",
+						"5034"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Phim Phan Trang",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/LayDanhSachPhimPhanTrang?soTrang=0&soPhanTuTrenTrang=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"LayDanhSachPhimPhanTrang"
+					],
+					"query": [
+						{
+							"key": "soTrang",
+							"value": "0"
+						},
+						{
+							"key": "soPhanTuTrenTrang",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cap Nhat Phim",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenPhim\": \"bánh mì \",\r\n  \"moTa\": \"Bộ phim buồn\",\r\n  \"ngayKhoiChieu\": \"11-12-2021\",\r\n  \"danhGia\": \"5\",\r\n  \"trailer\": \"https://www.youtube.com/watch?v=F_wnnbInzSE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/CapNhatPhim/5034",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"CapNhatPhim",
+						"5034"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xoa Phim",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/XoaPhim/2042",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"XoaPhim",
+						"2042"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Phim Theo Ngay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/QuanLyPhim/LayDanhSachPhimTheoNgay?tenPhim=michale&tuNgay=01-10-2019&denNgay=12-30-2021",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyPhim",
+						"LayDanhSachPhimTheoNgay"
+					],
+					"query": [
+						{
+							"key": "tenPhim",
+							"value": "michale"
+						},
+						{
+							"key": "tuNgay",
+							"value": "01-10-2019"
+						},
+						{
+							"key": "denNgay",
+							"value": "12-30-2021"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

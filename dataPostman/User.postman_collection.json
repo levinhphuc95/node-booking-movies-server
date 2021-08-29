@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "2a8bb84b-8050-4347-8c7d-44fd58beb448",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dang Ky",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"taiKhoan\": \"duyhoc\",\r\n  \"matKhau\": \"123\",\r\n  \"email\": \"minhhangc@gmail.com\",\r\n  \"soDt\": \"090782131\",\r\n  \"maLoaiNguoiDung\": \"ADMIN\",\r\n  \"hoTen\": \"duyhoc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyNguoiDung/DangKy",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyNguoiDung",
+						"DangKy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dang Nhap",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"taiKhoan\": \"duyhoc\",\r\n     \"matKhau\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/DangNhap",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"DangNhap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Nguoi Dung",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachNguoiDung",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"LayDanhSachNguoiDung"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Loai Nguoi Dung",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
+						"description": "ADMIN",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoibWluaGhhbmdjQGdtYWlsLmNvbSIsIm1hTG9haU5ndW9pRHVuZyI6IkFETUlOIiwiaWF0IjoxNjI3NzM3MjI3LCJleHAiOjE2NTg4NDEyMjd9.GL_-MKvK0z8MAzboGXoeHoeteaYqh9CkMZVwCpMBIxg",
+							"description": "ADMIN",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachLoaiNguoiDung/ADMIN",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"LayDanhSachLoaiNguoiDung",
+						"ADMIN"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Nguoi Dung Phan Trang",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
+						"description": "ADMIN",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?soTrang=0&soPhanTuTrenTrang=3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"LayDanhSachNguoiDungPhanTrang"
+					],
+					"query": [
+						{
+							"key": "soTrang",
+							"value": "0"
+						},
+						{
+							"key": "soPhanTuTrenTrang",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tim Kiem Nguoi Dung",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/TimKiemNguoiDung/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"TimKiemNguoiDung",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cap Nhat Thong Tin  Nguoi Dung",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"taiKhoan\": \"vanphuoc\",\r\n  \"matKhau\": \"123\",\r\n  \"email\": \"minhhangc@gmail.com\",\r\n  \"soDt\": \"090782131\",\r\n  \"maLoaiNguoiDung\": \"CLIENTS\",\r\n  \"hoTen\": \"Van Phuoc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/CapNhatThongTinNguoiDung/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"CapNhatThongTinNguoiDung",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xoa Nguoi Dung",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
+						"description": "ADMIN",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api//QuanLyNguoiDung/XoaNguoiDung/8",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"",
+						"QuanLyNguoiDung",
+						"XoaNguoiDung",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "496ab382-d0fd-4382-8e28-61f5a89e1683",
+		"name": "Ticket",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tao Lich Chieu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"maPhim\": 3328,\r\n    \"maRap\": 524,\r\n    \"giaVe\": 80000,\r\n    \"ngayGioChieu\": \"8-8-2019\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyDatVe/TaoLichChieu",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyDatVe",
+						"TaoLichChieu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dat Ve",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"maLichChieu\": 52433288,\r\n  \"danhSachVe\": [\r\n    {\r\n      \"maGhe\": 101,\r\n      \"giaVe\": 80000\r\n    },{\r\n        \"maGhe\": 102,\r\n      \"giaVe\": 80000\r\n    }\r\n  ],\r\n  \"taiKhoanNguoiDung\": \"duyhoc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/QuanLyDatVe/DatVe",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyDatVe",
+						"DatVe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach Phong Ve",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/QuanLyDatVe/LayDanhSachPhongVe?maLichChieu=52433288",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyDatVe",
+						"LayDanhSachPhongVe"
+					],
+					"query": [
+						{
+							"key": "maLichChieu",
+							"value": "52433288"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
