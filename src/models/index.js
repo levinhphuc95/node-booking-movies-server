@@ -1,4 +1,4 @@
-// const dbConfig = require("../config/config.postgres");
+// const dbConfig = require("../config/config.docker");
 const dbConfig = require("../config/config.mysql");
 
 const Sequelize = require("sequelize");

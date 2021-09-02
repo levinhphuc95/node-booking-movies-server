@@ -10,12 +10,15 @@ services:
       - db
 
   db:
-    image: postgres
+    platform: linux/x86_64
+    image: mysql/mysql-server:latest
     restart: always
     environment:
-      POSTGRES_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: dbpassword
+      MYSQL_DATABASE: movies
+      MYSQL_ROOT_HOST: "%"
     volumes:
-      - db-container:/var/lib/postgresql/data
+      - db-container:/var/lib/mysql
 
   adminer:
     image: adminer

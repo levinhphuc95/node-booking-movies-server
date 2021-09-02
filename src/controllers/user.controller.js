@@ -82,7 +82,7 @@ const createUser = async (req, res) => {
       soDt,
       maLoaiNguoiDung,
     });
-    newUser.save()
+    newUser.save();
     res.status(201).send("Tạo tài khoản thành công");
   } catch (error) {
     res.status(500).send(error);
@@ -118,7 +118,6 @@ const signIn = async (req, res) => {
     } else {
       res.status(400).send("Tài khoản hoặc mật khẩu không đúng");
     }
-    res.send({ taiKhoan, matKhau });
   } catch (error) {
     res.status(500).send(error);
   }
