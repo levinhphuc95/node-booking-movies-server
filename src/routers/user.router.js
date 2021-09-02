@@ -24,24 +24,18 @@ const userRouter = express.Router();
 userRouter.get(
   "/LayDanhSachNguoiDung",
   logFeature("lấy danh sách người dùng"),
-  authenticate,
-  authorize(["QuanTri"]),
   getListUser
 );
 
 userRouter.get(
   "/LayDanhSachNguoiDungPhanTrang",
   logFeature("lấy danh sách người dùng phân trang"),
-  authenticate,
-  authorize(["QuanTri"]),
   getListUserPagination
 );
 
 userRouter.get(
   "/LayDanhSachLoaiNguoiDung",
   logFeature("lấy danh sách loại người dùng"),
-  authenticate,
-  authorize(["QuanTri"]),
   getListUserRole
 );
 
@@ -56,9 +50,19 @@ userRouter.post("/DangKy", createUser);
 
 userRouter.post("/DangNhap", signIn);
 
-userRouter.post("/ThemNguoiDung", createUser);
+userRouter.post(
+  "/ThemNguoiDung",
+  authenticate,
+  authorize(["QuanTri"]),
+  createUser
+);
 
-userRouter.put("/CapNhatThongTinNguoiDung/:id", authenticate ,checkExist(users), updateUser);
+userRouter.put(
+  "/CapNhatThongTinNguoiDung/:id",
+  authenticate,
+  checkExist(users),
+  updateUser
+);
 
 userRouter.delete(
   "/XoaNguoiDung/:id",
