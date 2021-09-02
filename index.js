@@ -1,12 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./models");
-const { rootRouter } = require("./routers/root.router");
+const db = require("./src/models");
+const { rootRouter } = require("./src/routers/root.router");
 const app = express();
 
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Drop and re-sync db.");
-// });
+db.sequelize.sync();
 
 app.use(cors());
 
