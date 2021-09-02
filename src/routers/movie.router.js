@@ -24,48 +24,41 @@ const {
 movieRouter.get(
   "/LayDanhSachPhim",
   logFeature("lấy danh sách phim"),
-  authenticate,
-  authorize(["ADMIN"]),
   getListMoive
 );
 
-movieRouter.get(
-  "/LayDanhSachPhimTheoNgay",
-  getListMoiveByDay
+movieRouter.get("/LayDanhSachPhimTheoNgay", getListMoiveByDay);
+
+movieRouter.get("/LayThongTinPhim/:maPhim", getDetailMovie);
+
+movieRouter.get("/LayDanhSachPhimPhanTrang", getListMoviePagination);
+
+movieRouter.post(
+  "/ThemPhim",
+  authenticate,
+  authorize(["QuanTri"]),
+  createMovie
 );
 
-movieRouter.get(
-  "/LayThongTinPhim/:maPhim",
+movieRouter.post(
+  "/UpLoadHinhAnhPhim",
+  uploadImageSingle(),
   authenticate,
-  logFeature("lấy thông tin phim"),
-  authenticate,
-  authorize(["ADMIN"]),
-  getDetailMovie
+  authorize(["QuanTri"]),
+  uploadImgMovie
 );
-
-movieRouter.get(
-  "/LayDanhSachPhimPhanTrang",
-  logFeature("lấy danh sách người dùng phân trang"),
-  authenticate,
-  authorize(["ADMIN"]),
-  getListMoviePagination
-);
-
-movieRouter.post("/ThemPhim", authenticate, authorize(["ADMIN"]), createMovie);
-
-movieRouter.post("/UpLoadHinhAnhPhim", uploadImageSingle(), uploadImgMovie);
 
 movieRouter.delete(
   "/XoaPhim/:maPhim",
   authenticate,
-  authorize(["ADMIN"]),
+  authorize(["QuanTri"]),
   removeMovies
 );
 
 movieRouter.put(
   "/CapNhatPhim/:maPhim",
   authenticate,
-  authorize(["ADMIN"]),
+  authorize(["QuanTri"]),
   updateMovies
 );
 

@@ -15,14 +15,12 @@ ticketRouter.post(
   "/TaoLichChieu",
   logFeature("tạo lịch chiếu"),
   authenticate,
-  authorize(["ADMIN"]),
+  authorize(["QuanTri"]),
   createMovieShowtime
 );
 
 ticketRouter.get(
   "/LayDanhSachPhongVe",
-  authenticate,
-  authorize(["ADMIN"]),
   layDanhSachPhongVe
 );
 ticketRouter.post("/DatVe", authenticate, datVe);

@@ -12,13 +12,13 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg5MzAyMjIsImV4cCI6MTY2MDAzNDIyMn0.hpyfn35NZOcQmHTST9Y3LQAnw7yM-VKw229Gc9iLmYY",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"tenPhim\": \"sieu nhan\",\r\n  \"moTa\": \"Bộ phim xúc động nhất quả đất\",\r\n  \"ngayKhoiChieu\": \"10-12-2020\",\r\n  \"danhGia\": \"5\",\r\n  \"trailer\": \"https://www.youtube.com/watch?v=F_wnnbInzSE\"\r\n}",
+					"raw": "{\r\n  \"tenPhim\": \"toa nha 24\",\r\n  \"moTa\": \"Phim hành động\",\r\n  \"ngayKhoiChieu\": \"2020-10-12 20:00:00\",\r\n  \"danhGia\": \"5\",\r\n  \"trailer\": \"https://www.youtube.com/watch?v=F_wnnbInzSE\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -53,7 +53,7 @@
 				"header": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg5MzMzNjksImV4cCI6MTY2MDAzNzM2OX0.49XAku0TiMiKWRMKjkim78euaJyPozYsWG4sKOTv9TM",
+						"value": "{{token}}",
 						"type": "text"
 					}
 				],
@@ -63,11 +63,11 @@
 						{
 							"key": "imgMovies",
 							"type": "file",
-							"src": "/C:/Users/asus/OneDrive/Hình ảnh/Saved Pictures/Me/20191003_100958.jpg"
+							"src": "/C:/Users/asus/OneDrive/Hình ảnh/Saved Pictures/Me/IMG_0867.JPG"
 						},
 						{
 							"key": "maPhim",
-							"value": "1088",
+							"value": "5042",
 							"type": "text"
 						}
 					]
@@ -92,8 +92,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg0MjE1MDgsImV4cCI6MTY1OTUyNTUwOH0.w2zz2gFe-cNYh9qaxTvsvViuic9DrmiiioSBYyVljIE",
+						"key": "",
+						"value": "",
 						"type": "text"
 					}
 				],
@@ -120,8 +120,8 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjg0MzE0MjksImV4cCI6MTY1OTUzNTQyOX0.X11vpEVcahI9ZyM-_j_LWTKCkkiOu8hFP_5i678MnIE",
+						"key": "",
+						"value": "",
 						"type": "text"
 					}
 				],
@@ -183,7 +183,13 @@
 			"name": "Cap Nhat Phim",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n  \"tenPhim\": \"bánh mì \",\r\n  \"moTa\": \"Bộ phim buồn\",\r\n  \"ngayKhoiChieu\": \"11-12-2021\",\r\n  \"danhGia\": \"5\",\r\n  \"trailer\": \"https://www.youtube.com/watch?v=F_wnnbInzSE\"\r\n}",
@@ -212,7 +218,13 @@
 			"name": "Xoa Phim",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{url}}/api/QuanLyPhim/XoaPhim/2042",
 					"host": [

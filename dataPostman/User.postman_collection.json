@@ -1,18 +1,24 @@
 {
 	"info": {
-		"_postman_id": "2a8bb84b-8050-4347-8c7d-44fd58beb448",
-		"name": "User",
+		"_postman_id": "c3d122c3-b7c8-4c99-bd79-c6eca7827dd9",
+		"name": "Cineplex",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Dang Ky",
+			"name": "Them Rap",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"taiKhoan\": \"duyhoc\",\r\n  \"matKhau\": \"123\",\r\n  \"email\": \"minhhangc@gmail.com\",\r\n  \"soDt\": \"090782131\",\r\n  \"maLoaiNguoiDung\": \"ADMIN\",\r\n  \"hoTen\": \"duyhoc\"\r\n}",
+					"raw": "{\r\n    \"maCumRap\": \"cgv-aeon-binh-tan\",\r\n    \"tenCumRap\": \"CGV - Aeon Bình Tân\",\r\n    \"diaChi\": \"Tầng 3, TTTM Aeon Mall Bình Tân, Số 1 đường số 17A, khu phố 11, Bình Trị Đông B, Bình Tân\",\r\n    \"maRap\": 527,\r\n    \"tenRap\": \"Rạp 7\",\r\n    \"maHeThongRap\": \"CGV\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -20,27 +26,33 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api/QuanLyNguoiDung/DangKy",
+					"raw": "{{url}}/api/QuanLyRap/ThemRap",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"QuanLyNguoiDung",
-						"DangKy"
+						"QuanLyRap",
+						"ThemRap"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Dang Nhap",
+			"name": "Them He Thong Rap",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n     \"taiKhoan\": \"duyhoc\",\r\n     \"matKhau\": \"123\"\r\n}",
+					"raw": "  {\r\n    \"maHeThongRap\": \"CGV\",\r\n    \"tenHeThongRap\": \"CGV\",\r\n    \"biDanh\": \"cgv\",\r\n    \"logo\": \"http://movie0706.cybersoft.edu.vn/hinhanh/megags.png\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -48,42 +60,21 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/DangNhap",
+					"raw": "{{url}}/api/QuanLyRap/ThemHeThongRap",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"",
-						"QuanLyNguoiDung",
-						"DangNhap"
+						"QuanLyRap",
+						"ThemHeThongRap"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Lay Danh Sach Nguoi Dung",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachNguoiDung",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"",
-						"QuanLyNguoiDung",
-						"LayDanhSachNguoiDung"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lay Danh Sach Loai Nguoi Dung",
+			"name": "Lay Thong Tin Cum Rap Theo He Thong",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -91,149 +82,10 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
-						"description": "ADMIN",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoibWluaGhhbmdjQGdtYWlsLmNvbSIsIm1hTG9haU5ndW9pRHVuZyI6IkFETUlOIiwiaWF0IjoxNjI3NzM3MjI3LCJleHAiOjE2NTg4NDEyMjd9.GL_-MKvK0z8MAzboGXoeHoeteaYqh9CkMZVwCpMBIxg",
-							"description": "ADMIN",
-							"type": "text",
-							"disabled": true
-						}
-					]
-				},
-				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachLoaiNguoiDung/ADMIN",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"",
-						"QuanLyNguoiDung",
-						"LayDanhSachLoaiNguoiDung",
-						"ADMIN"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Lay Danh Sach Nguoi Dung Phan Trang",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
-						"description": "ADMIN",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?soTrang=0&soPhanTuTrenTrang=3",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"",
-						"QuanLyNguoiDung",
-						"LayDanhSachNguoiDungPhanTrang"
-					],
-					"query": [
-						{
-							"key": "soTrang",
-							"value": "0"
-						},
-						{
-							"key": "soPhanTuTrenTrang",
-							"value": "3"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Tim Kiem Nguoi Dung",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/TimKiemNguoiDung/1",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"",
-						"QuanLyNguoiDung",
-						"TimKiemNguoiDung",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Cap Nhat Thong Tin  Nguoi Dung",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"}"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"taiKhoan\": \"vanphuoc\",\r\n  \"matKhau\": \"123\",\r\n  \"email\": \"minhhangc@gmail.com\",\r\n  \"soDt\": \"090782131\",\r\n  \"maLoaiNguoiDung\": \"CLIENTS\",\r\n  \"hoTen\": \"Van Phuoc\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/CapNhatThongTinNguoiDung/8",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"api",
-						"",
-						"QuanLyNguoiDung",
-						"CapNhatThongTinNguoiDung",
-						"8"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Xoa Nguoi Dung",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJtaW5oaGFuZ2NAZ21haWwuY29tIiwibWFMb2FpTmd1b2lEdW5nIjoiQURNSU4iLCJpYXQiOjE2Mjc4MTI3MzEsImV4cCI6MTY1ODkxNjczMX0.a6d3j8S0s4YLM-0caMlyFTzU9VbeTnH-zsYyAlnIGfY",
-						"description": "ADMIN",
-						"type": "text"
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -241,16 +93,116 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{url}}/api//QuanLyNguoiDung/XoaNguoiDung/8",
+					"raw": "{{url}}/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=CGV",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
-						"",
-						"QuanLyNguoiDung",
-						"XoaNguoiDung",
-						"8"
+						"QuanLyRap",
+						"LayThongTinCumRapTheoHeThong"
+					],
+					"query": [
+						{
+							"key": "maHeThongRap",
+							"value": "CGV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Danh Sach He Thong Rap",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/QuanLyRap/LayThongTinHeThongRap",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyRap",
+						"LayThongTinHeThongRap"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Thong Tin Lich Chieu He Thong Rap",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=CGV",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyRap",
+						"LayThongTinLichChieuHeThongRap"
+					],
+					"query": [
+						{
+							"key": "maHeThongRap",
+							"value": "CGV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lay Thong Tin Lich Chieu Phim",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=3723",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"QuanLyRap",
+						"LayThongTinLichChieuPhim"
+					],
+					"query": [
+						{
+							"key": "maPhim",
+							"value": "3723"
+						}
 					]
 				}
 			},

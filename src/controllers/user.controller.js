@@ -15,10 +15,18 @@ const getListUser = async (req, res) => {
 
 // Lấy danh sách loại người dùng
 const getListUserRole = async (req, res) => {
-  const maLoaiNguoiDung = req.params.role;
+  const danhSachLoaiNguoiDung = [
+    {
+      maLoaiNguoiDung: "KhachHang",
+      tenLoai: "KhachHang",
+    },
+    {
+      maLoaiNguoiDung: "QuanTri",
+      tenLoai: "Quản Trị",
+    },
+  ];
   try {
-    const userRole = await users.findAll({ where: { maLoaiNguoiDung } });
-    res.status(200).send(userRole);
+    res.status(200).send(danhSachLoaiNguoiDung);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -127,9 +135,13 @@ const signIn = async (req, res) => {
 const updateUser = async (req, res) => {
   const { id } = req.params;
   const { taiKhoan, email, matKhau, hoTen, soDt, maLoaiNguoiDung } = req.body;
+  // tạo chuổi ngẫu nhiêu
+  const salt = bcryptjs.genSaltSync(10);
+  // mã hóa password
+  const hashPassword = bcryptjs.hashSync(matKhau, salt);
   try {
     await users.update(
-      { taiKhoan, email, matKhau, hoTen, soDt, maLoaiNguoiDung },
+      { taiKhoan, email, matKhau: hashPassword, hoTen, soDt, maLoaiNguoiDung },
       {
         where: {
           id,

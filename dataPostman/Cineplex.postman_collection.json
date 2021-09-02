@@ -9,10 +9,16 @@
 			"name": "Them Rap",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"maCumRap\": \"cgv-aeon-tan-phu\",\r\n    \"tenCumRap\": \"CGV - Aeon Tân Phú\",\r\n    \"diaChi\": \"30 Bờ Bao Tân Thắng, Sơn Kỳ, Tân Phú\",\r\n    \"maRap\": 524,\r\n    \"tenRap\": \"Rạp 4\",\r\n    \"maHeThongRap\": \"CGV\"\r\n}",
+					"raw": "{\r\n    \"maCumRap\": \"cgv-aeon-binh-tan\",\r\n    \"tenCumRap\": \"CGV - Aeon Bình Tân\",\r\n    \"diaChi\": \"Tầng 3, TTTM Aeon Mall Bình Tân, Số 1 đường số 17A, khu phố 11, Bình Trị Đông B, Bình Tân\",\r\n    \"maRap\": 527,\r\n    \"tenRap\": \"Rạp 7\",\r\n    \"maHeThongRap\": \"CGV\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,7 +43,13 @@
 			"name": "Them He Thong Rap",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "  {\r\n    \"maHeThongRap\": \"CGV\",\r\n    \"tenHeThongRap\": \"CGV\",\r\n    \"biDanh\": \"cgv\",\r\n    \"logo\": \"http://movie0706.cybersoft.edu.vn/hinhanh/megags.png\"\r\n  }",
@@ -63,15 +75,23 @@
 		},
 		{
 			"name": "Lay Thong Tin Cum Rap Theo He Thong",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "",
 						"value": "",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
 				"url": {
 					"raw": "{{url}}/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=CGV",
 					"host": [
@@ -96,7 +116,14 @@
 			"name": "Lay Danh Sach He Thong Rap",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
 					"raw": "{{url}}/api/QuanLyRap/LayThongTinHeThongRap",
 					"host": [
@@ -106,6 +133,13 @@
 						"api",
 						"QuanLyRap",
 						"LayThongTinHeThongRap"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -117,10 +151,9 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "maHeThongRap",
-						"value": "",
-						"type": "text",
-						"disabled": true
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
 					}
 				],
 				"url": {
@@ -147,9 +180,16 @@
 			"name": "Lay Thong Tin Lich Chieu Phim",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"url": {
-					"raw": "{{url}}/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=1470",
+					"raw": "{{url}}/api/QuanLyRap/LayThongTinLichChieuPhim?maPhim=3723",
 					"host": [
 						"{{url}}"
 					],
@@ -161,7 +201,7 @@
 					"query": [
 						{
 							"key": "maPhim",
-							"value": "1470"
+							"value": "3723"
 						}
 					]
 				}

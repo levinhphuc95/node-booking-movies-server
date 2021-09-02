@@ -13,36 +13,26 @@ const {
   authorize,
 } = require("../middlewares/auth/verify-token.middleware");
 
+cinemaRouter.get("/LayThongTinHeThongRap", getListCineplex);
 
-cinemaRouter.get(
-  "/LayThongTinHeThongRap",
-  authenticate,
-  authorize(["ADMIN"]),
-  getListCineplex
-);
+cinemaRouter.get("/LayThongTinCumRapTheoHeThong", getListCinemaWithCineplex);
 
-cinemaRouter.get(
-  "/LayThongTinCumRapTheoHeThong",
-  authenticate,
-  authorize(["ADMIN"]),
-  getListCinemaWithCineplex
-);
+cinemaRouter.get("/LayThongTinLichChieuHeThongRap", layThongTinLichChieuHeThongRap);
 
-cinemaRouter.get(
-  "/LayThongTinLichChieuHeThongRap",
-  authenticate,
-  authorize(["ADMIN"]),
-  layThongTinLichChieuHeThongRap
-);
-cinemaRouter.get(
-  "/LayThongTinLichChieuPhim",
-  authenticate,
-  authorize(["ADMIN"]),
-  layThongTinLichChieuPhim
-);
+cinemaRouter.get("/LayThongTinLichChieuPhim", layThongTinLichChieuPhim);
 
-cinemaRouter.post("/ThemHeThongRap", createCineplex);
-cinemaRouter.post("/ThemRap", createCinena);
+cinemaRouter.post(
+  "/ThemHeThongRap",
+  authenticate,
+  authorize(["QuanTri"]),
+  createCineplex
+);
+cinemaRouter.post(
+  "/ThemRap",
+  authenticate,
+  authorize(["QuanTri"]),
+  createCinena
+);
 
 module.exports = {
   cinemaRouter,
